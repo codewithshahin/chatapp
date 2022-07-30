@@ -1,0 +1,13 @@
+.message-send {
+  float: right;
+}
+.message-recive{
+  float: left;
+}
+.box-style{
+  box-shadow: 0 10px 8px 5px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px;
+}
