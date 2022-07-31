@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Admin from "./Components/Admin/Admin";
 import Chat from "./Components/Chat/Chat";
 import Login from "./Components/Login/Login";
+import ResetPassword from "./Components/Login/ResetPassword";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const App = () => {
@@ -24,8 +25,8 @@ const App = () => {
           </PrivateRoute>
         }
       />
-      <Route path="/chat-admin" element={<Admin />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
     </Routes>
   );
 };

@@ -58,18 +58,18 @@ const ChatHome = () => {
     <div className="container">
       <div className="row">
         <div className="col-lg-4">
-          <ol class="list-group list-group-numbered">
+          <ol className="list-group list-group-numbered">
             {users.map((user) => (
               <li
                 key={user.slug}
-                class="list-group-item d-flex justify-content-between align-items-start"
+                className="list-group-item d-flex justify-content-between align-items-start"
               >
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">
+                <div className="ms-2 me-auto">
+                  <div className="fw-bold">
                     <Link to={`/${user?.slug}`}>{user?.username}</Link>
                   </div>
                 </div>
-                <span class="badge bg-primary rounded-pill">
+                <span className="badge bg-primary rounded-pill">
                   {/* {msg?.messages?.length} */}
                 </span>
               </li>

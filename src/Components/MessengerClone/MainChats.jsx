@@ -5,9 +5,9 @@ const MainChats = ({ my, you, user, selectedUser,ref }) => {
   return (
     <>
       {/* Main All Chats */}
-      <main class="main" ref={ref}>
+      <main className="main" ref={ref}>
         {selectedUser?.email ? (
-          <div class="message-wrapper">
+          <div className="message-wrapper">
             {you?.messages?.map((message, index) => (
               <Sender
                 message={message}
@@ -32,13 +32,13 @@ const MainChats = ({ my, you, user, selectedUser,ref }) => {
 const Sender = ({ message, selectedUser }) => {
   return (
     <>
-      <div class="sender">
+      <div className="sender">
         <span>{message?.sendDate}</span>
-        <div class="sender-info">
-          <div class="sender-avatar">
-            <img class="person-logo2" src={selectedUser?.photoURL} alt="user" />
+        <div className="sender-info">
+          <div className="sender-avatar">
+            <img className="person-logo2" src={selectedUser?.photoURL} alt="user" />
           </div>
-          <div class="sender-message">
+          <div className="sender-message">
             <p dangerouslySetInnerHTML={{__html:urlify(message?.message)}}></p>
           </div>
         </div>
@@ -49,13 +49,13 @@ const Sender = ({ message, selectedUser }) => {
 
 const Reciver = ({ message, user }) => {
   return (
-    <div class="reciver">
+    <div className="reciver">
       <span>{message?.sendDate}</span>
-      <div class="reciver-info">
-        <div class="reciver-avatar">
-          <img class="person-logo2" src={user?.photoURL} alt="user" />
+      <div className="reciver-info">
+        <div className="reciver-avatar">
+          <img className="person-logo2" src={user?.photoURL} alt="user" />
         </div>
-        <div class="reciver-message">
+        <div className="reciver-message">
         <p dangerouslySetInnerHTML={{__html:urlify(message?.message)}}></p>
         </div>
       </div>

@@ -15,7 +15,7 @@ const Chatbox = ({
 }) => {
   const messRef = useRef(null);
   return (
-    <aside class="chatbox">
+    <aside className="chatbox">
       {/* Header */}
       <Header
         status={status}
@@ -59,14 +59,14 @@ const Chatbox = ({
 };
 const Header = ({ selectedUser, logout, status, setStatus }) => {
   return (
-    <header class="chat-box header">
+    <header className="chat-box header">
       <div className="mobile-menu" onClick={() => setStatus(!status)}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <img src={selectedUser?.photoURL} alt="person" class="person-logo3" />
-      <span class="person-name">{selectedUser?.username}</span>
+      <img src={selectedUser?.photoURL} alt="person" className="person-logo3" />
+      <span className="person-name">{selectedUser?.username}</span>
       <i
         className="fa fa-sign-out logout"
         aria-hidden="true"
@@ -98,7 +98,7 @@ const Footer = ({ sendMessage, user, selectedUser, messRef }) => {
           }
         }}
         onChange={(e) => setMessage(e.target.value)}
-        class="message-input"
+        className="message-input"
         type="text"
         value={message}
         placeholder="type message"

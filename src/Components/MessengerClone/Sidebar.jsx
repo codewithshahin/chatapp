@@ -5,20 +5,20 @@ const Sidebar = ({ users, User, status, setStatus }) => {
   return (
     <>
       {/* Sidebar */}
-      <aside class={`sidebar ${status ? "show" : null}`}>
-        <header class="people-header">
-          <h2 class="chat-heading">Chats</h2>
-          <div class="search-wrapper">
+      <aside className={`sidebar ${status ? "show" : null}`}>
+        <header className="people-header">
+          <h2 className="chat-heading">Chats</h2>
+          <div className="search-wrapper">
             <input
               type="search"
-              class="search-input"
+              className="search-input"
               placeholder="Search Messenger"
             />
           </div>
         </header>
         {/* <!-- Peoples --> */}
-        <div class="peoples-wrapper">
-          <ul class="peoples">
+        <div className="peoples-wrapper">
+          <ul className="peoples">
             {users?.map((user, index) => (
               <Item
                 user={user}
@@ -39,22 +39,22 @@ const Item = ({ user, User, status, setStatus }) => {
   const navigate = useNavigate();
   return (
     <li
-      class="people-item"
+      className="people-item"
       onClick={() => {
         navigate(`/${user?.slug}`);
         setStatus(!status);
       }}
     >
-      <img src={user?.photoURL} alt="person" class="person-logo" />
+      <img src={user?.photoURL} alt="person" className="person-logo" />
       <div>
-        <span class="people-name">
+        <span className="people-name">
           {user?.email === "dev.shahin2@gmail.com"
             ? "Boss ✅"
             : user?.email === User?.email
             ? "Me"
             : user?.username}
         </span>
-        <p class="sort-message">message sort</p>
+        <p className="sort-message">message sort</p>
       </div>
     </li>
   );

@@ -1,0 +1,17 @@
+img.google-login {
+  z-index: -999999;
+  /* padding: 0; */
+  width: 177px;
+  height: auto;
+  padding: 0;
+  display: block;
+  margin: -21px auto;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+input.form-control {
+    z-index: 9999;
+}
+form{
+    margin-top: 25px;
+}
