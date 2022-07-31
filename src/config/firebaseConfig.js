@@ -12,14 +12,14 @@ import {
 import slugify from "slugify";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDOP1MvmFjzURnnSVCBCYqwgwxxf1P7Rgs",
-  authDomain: "shchatapp.firebaseapp.com",
-  projectId: "shchatapp",
-  storageBucket: "shchatapp.appspot.com",
-  messagingSenderId: "401047518936",
-  appId: "1:401047518936:web:0eec9120dba04b2af8a1ad",
+  apiKey: "apiKey",
+  authDomain: "authDomain",
+  projectId: "projectId",
+  storageBucket: "storageBucket",
+  messagingSenderId: "messagingSenderId",
+  appId: "appId",
   databaseURL:
-    "https://shchatapp-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "databaseURL",
 };
 
 // Initialize Firebase
@@ -106,3 +106,4 @@ function updateMessageAndSave(slug, to, message2) {
 export { db, ref, onValue, sendMessage, set };
 
 export default Firebaseapp;
+
