@@ -10,9 +10,8 @@ const Login = () => {
     googleLogin()
       .then((res) => {
         setLoading(true);
-        navigate(state?.location?.pathname, {
-          replace: true,
-        });
+        // navigate("/")
+        window.location.replace("/")
       })
       .catch((err) => {
         alert(err.message);

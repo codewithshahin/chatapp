@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Admin from "./Components/Admin/Admin";
 import Chat from "./Components/Chat/Chat";
-import ChatHome from "./Components/Chat/ChatHome";
 import Login from "./Components/Login/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 

@@ -3,7 +3,7 @@ import { db, ref, onValue } from "../config/firebaseConfig";
 import useAuth from "../Hooks/useAuth";
 import { getSlug } from "../utlis/lib";
 const ChatService = () => {
-  const { user: User } = useAuth();
+  const { user: User,logout } = useAuth();
   const [users, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -60,6 +60,7 @@ const ChatService = () => {
     sendMessage,
     onValue,
     user: User,
+    logout
   };
 };
 

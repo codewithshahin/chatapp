@@ -11,3 +11,14 @@
   border-radius: 10px;
   margin: 10px;
 }
+.logo-social{
+  width: 25px !important;
+  height: 25px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 746px) {
+  .box-style{
+    width: 100%;
+  }
+}

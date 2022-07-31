@@ -5,6 +5,7 @@ import {
   getAuth,
   sendEmailVerification,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import Firebaseapp from "../config/firebaseConfig";
 Firebaseapp();
@@ -24,6 +25,10 @@ const useFirebase = () => {
 
   const googleLogin = () => {
     return signInWithPopup(auth, googleProvider);
+  };
+
+  const logout = () => {
+    signOut(auth).then((res) => {});
   };
 
   const saveUser = ({ email, displayName, photoURL }) => {
@@ -60,6 +65,7 @@ const useFirebase = () => {
     user,
     sendEmailVerification,
     myMessage,
+    logout,
   };
 };
 
