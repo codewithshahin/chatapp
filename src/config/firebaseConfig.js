@@ -12,15 +12,16 @@ import {
 import slugify from "slugify";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "apiKey",
-  authDomain: "authDomain",
-  projectId: "projectId",
-  storageBucket: "storageBucket",
-  messagingSenderId: "messagingSenderId",
-  appId: "appId",
+  apiKey: "AIzaSyDOP1MvmFjzURnnSVCBCYqwgwxxf1P7Rgs",
+  authDomain: "shchatapp.firebaseapp.com",
+  projectId: "shchatapp",
+  storageBucket: "shchatapp.appspot.com",
+  messagingSenderId: "401047518936",
+  appId: "1:401047518936:web:0eec9120dba04b2af8a1ad",
   databaseURL:
-    "databaseURL",
+    "https://shchatapp-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
+
 
 // Initialize Firebase
 const Firebaseapp = () => initializeApp(firebaseConfig);

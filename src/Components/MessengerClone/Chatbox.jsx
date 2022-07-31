@@ -11,17 +11,23 @@ const Chatbox = ({
   sendMessage,
   logout,
   setStatus,
-  status
+  status,
 }) => {
-  const messRef = useRef(null)
+  const messRef = useRef(null);
   return (
     <aside class="chatbox">
+      {/* Header */}
+      <Header
+        status={status}
+        setStatus={setStatus}
+        selectedUser={selectedUser}
+        logout={logout}
+      />
       {selectedUser?.email ? (
         <>
-          {/* Header */}
-          <Header status={status} setStatus={setStatus} selectedUser={selectedUser} logout={logout} />
           {/* Messages */}
-          <MainChats ref={messRef}
+          <MainChats
+            ref={messRef}
             users={users}
             my={my}
             you={you}
@@ -30,7 +36,8 @@ const Chatbox = ({
             selectedUser={selectedUser}
           />
           {/* Footer */}
-          <Footer messRef={messRef}
+          <Footer
+            messRef={messRef}
             sendMessage={sendMessage}
             user={user}
             selectedUser={selectedUser}
@@ -39,6 +46,12 @@ const Chatbox = ({
       ) : (
         <div className="no-selected">
           <h2>Please select a user to start conversation</h2>
+          <button
+            className="btn btn-sm btn-success d-md-none d-sm-block d-lg-none"
+            onClick={() => setStatus(!status)}
+          >
+            Click Here
+          </button>
         </div>
       )}
     </aside>
@@ -67,13 +80,13 @@ const Header = ({ selectedUser, logout, status, setStatus }) => {
   );
 };
 
-const Footer = ({ sendMessage, user, selectedUser,messRef }) => {
+const Footer = ({ sendMessage, user, selectedUser, messRef }) => {
   const [message, setMessage] = useState("");
   const handleSendMessage = () => {
     if (message.length > 0) {
       sendMessage(user, selectedUser, message);
       setMessage("");
-      messRef?.current?.scrollIntoView({ behavior: "smooth" })
+      messRef?.current?.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
