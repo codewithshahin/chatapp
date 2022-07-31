@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import MainChats from "./MainChats";
 
 const Chatbox = ({
@@ -9,16 +9,19 @@ const Chatbox = ({
   you,
   messages,
   sendMessage,
-  logout
+  logout,
+  setStatus,
+  status
 }) => {
+  const messRef = useRef(null)
   return (
     <aside class="chatbox">
       {selectedUser?.email ? (
         <>
           {/* Header */}
-          <Header selectedUser={selectedUser} logout={logout} />
+          <Header status={status} setStatus={setStatus} selectedUser={selectedUser} logout={logout} />
           {/* Messages */}
-          <MainChats
+          <MainChats ref={messRef}
             users={users}
             my={my}
             you={you}
@@ -27,7 +30,7 @@ const Chatbox = ({
             selectedUser={selectedUser}
           />
           {/* Footer */}
-          <Footer
+          <Footer messRef={messRef}
             sendMessage={sendMessage}
             user={user}
             selectedUser={selectedUser}
@@ -41,25 +44,36 @@ const Chatbox = ({
     </aside>
   );
 };
-const Header = ({ selectedUser, logout }) => {
+const Header = ({ selectedUser, logout, status, setStatus }) => {
   return (
     <header class="chat-box header">
+      <div className="mobile-menu" onClick={() => setStatus(!status)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <img src={selectedUser?.photoURL} alt="person" class="person-logo3" />
       <span class="person-name">{selectedUser?.username}</span>
-      <i className="fa fa-sign-out logout" aria-hidden="true" onClick={()=>{
-        if(window.confirm("are you sure?")){
+      <i
+        className="fa fa-sign-out logout"
+        aria-hidden="true"
+        onClick={() => {
+          if (window.confirm("are you sure?")) {
             logout();
-        }
-      }}></i>
+          }
+        }}
+      ></i>
     </header>
   );
 };
 
-const Footer = ({ sendMessage, user, selectedUser }) => {
+const Footer = ({ sendMessage, user, selectedUser,messRef }) => {
   const [message, setMessage] = useState("");
   const handleSendMessage = () => {
     if (message.length > 0) {
       sendMessage(user, selectedUser, message);
+      setMessage("");
+      messRef?.current?.scrollIntoView({ behavior: "smooth" })
     }
   };
   return (
@@ -73,6 +87,7 @@ const Footer = ({ sendMessage, user, selectedUser }) => {
         onChange={(e) => setMessage(e.target.value)}
         class="message-input"
         type="text"
+        value={message}
         placeholder="type message"
       />
     </footer>

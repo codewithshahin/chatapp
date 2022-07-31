@@ -7,6 +7,7 @@ const ChatService = () => {
   const [users, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [status,setStatus] = useState(false);
 
   //send message
   const sendMessage2 = (sendTo, message) => {
@@ -60,7 +61,9 @@ const ChatService = () => {
     sendMessage,
     onValue,
     user: User,
-    logout
+    logout,
+    status,
+    setStatus
   };
 };
 

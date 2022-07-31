@@ -32,6 +32,7 @@ span {
   border: 1px solid rgb(117, 117, 117);
   height: 100vh;
   position: fixed;
+  transition: all 150ms ease;
 }
 .sidebar header {
   position: sticky;
@@ -216,4 +217,45 @@ img.person-logo3 {
   margin-left: 10px;
   cursor: pointer;
   color: orange;
+}
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 460px) {
+  .sidebar {
+    left: -250px;
+  }
+  .chatbox {
+    margin-left: 0;
+  }
+  .sender {
+    width: 90%;
+  }
+  .reciver {
+    width: 95%;
+  }
+  .reciver-message,
+  .sender-message {
+    word-break: break-all;
+  }
+  .mobile-menu {
+    position: absolute;
+    display: block;
+    padding: 4px;
+    right: 0;
+    cursor: pointer;
+  }
+  .mobile-menu span {
+    border: 1px solid rgb(171, 171, 171);
+    display: block;
+    width: 20px;
+    margin: 3px;
+  }
+  .sidebar.show {
+    left: 0 !important;
+    background-color: white;
+    height: 100vh;
+    z-index: 9999999;
+  }
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar = ({ users, User }) => {
+const Sidebar = ({ users, User, status, setStatus }) => {
   return (
     <>
       {/* Sidebar */}
-      <aside class="sidebar">
+      <aside class={`sidebar ${status ? "show" : null}`}>
         <header class="people-header">
           <h2 class="chat-heading">Chats</h2>
           <div class="search-wrapper">
@@ -20,7 +20,13 @@ const Sidebar = ({ users, User }) => {
         <div class="peoples-wrapper">
           <ul class="peoples">
             {users?.map((user, index) => (
-              <Item user={user} key={index} User={User} />
+              <Item
+                user={user}
+                key={index}
+                User={User}
+                setStatus={setStatus}
+                status={status}
+              />
             ))}
           </ul>
         </div>
@@ -29,13 +35,25 @@ const Sidebar = ({ users, User }) => {
   );
 };
 
-const Item = ({ user, User }) => {
+const Item = ({ user, User, status, setStatus }) => {
   const navigate = useNavigate();
   return (
-    <li class="people-item" onClick={() => navigate(`/${user?.slug}`)}>
+    <li
+      class="people-item"
+      onClick={() => {
+        navigate(`/${user?.slug}`);
+        setStatus(!status);
+      }}
+    >
       <img src={user?.photoURL} alt="person" class="person-logo" />
       <div>
-        <span class="people-name">{user?.email ===  User?.email ? "Me" : user?.username}</span>
+        <span class="people-name">
+          {user?.email === "dev.shahin2@gmail.com"
+            ? "Boss ✅"
+            : user?.email === User?.email
+            ? "Me"
+            : user?.username}
+        </span>
         <p class="sort-message">message sort</p>
       </div>
     </li>

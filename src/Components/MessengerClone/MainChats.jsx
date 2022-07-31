@@ -1,10 +1,11 @@
 import React from "react";
+import { urlify } from "../../utlis/lib";
 
-const MainChats = ({ my, you, user, selectedUser }) => {
+const MainChats = ({ my, you, user, selectedUser,ref }) => {
   return (
     <>
       {/* Main All Chats */}
-      <main class="main">
+      <main class="main" ref={ref}>
         {selectedUser?.email ? (
           <div class="message-wrapper">
             {you?.messages?.map((message, index) => (
@@ -38,7 +39,7 @@ const Sender = ({ message, selectedUser }) => {
             <img class="person-logo2" src={selectedUser?.photoURL} alt="user" />
           </div>
           <div class="sender-message">
-            <p>{message?.message}</p>
+            <p dangerouslySetInnerHTML={{__html:urlify(message?.message)}}></p>
           </div>
         </div>
       </div>
@@ -55,7 +56,7 @@ const Reciver = ({ message, user }) => {
           <img class="person-logo2" src={user?.photoURL} alt="user" />
         </div>
         <div class="reciver-message">
-          <p>{message?.message}</p>
+        <p dangerouslySetInnerHTML={{__html:urlify(message?.message)}}></p>
         </div>
       </div>
     </div>
